@@ -7,19 +7,22 @@ def print_score(s, g):
         print(f'You are right. Your current score: {s}')
     else:
         print(f'You got it wrong. Your final score: {s}')
+        
+def random_data():
+    index = random.randint(0, len(data) - 1)
+    option = data[index]
+    data.pop(index)
+    return option
 
 score = 0
 game_on = True
 
 print(logo)
-initial_index = random.randint(0, len(data) - 1)
-option1 = data[initial_index ]
-data.pop(initial_index)
+
+option1 = random_data()
 
 while game_on:
-    index = random.randint(0, len(data) - 1)
-    option2 = data[index]
-    data.pop(index)
+    option2 = random_data()
 
     print_score(score, game_on)
     print(f"Compare A: {option1["name"]}, {option1["description"]}, from {option1["country"]}")
@@ -29,7 +32,9 @@ while game_on:
     print(f"Compare B: {option2["name"]}, {option2["description"]}, from {option2["country"]}")
         
     reply = input("Who has more followers? Type 'A' or 'B': ").lower().strip()
+    
     correct_ans = "a" if option1['follower_count'] > option2['follower_count'] else "b"
+    
     make_shit = ""
 
     if correct_ans == 'a':

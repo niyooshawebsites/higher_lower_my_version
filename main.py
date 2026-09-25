@@ -14,17 +14,16 @@ def random_data():
     data.pop(index)
     return option
 
+print(logo)
 score = 0
 game_on = True
-
-print(logo)
-
 option1 = random_data()
 
 while game_on:
     option2 = random_data()
 
     print_score(score, game_on)
+    
     print(f"Compare A: {option1["name"]}, {option1["description"]}, from {option1["country"]}")
 
     print(vs)
